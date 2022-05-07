@@ -143,8 +143,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT =  '587'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'edwinayabie3000'
-EMAIL_HOST_PASSWORD = 'edwinbeshe'
+EMAIL_HOST_USER = "email-name-here"
+EMAIL_HOST_PASSWORD = 'email_password-here'
 
 #remeber this, to use email in lcalhost
     # python -m smtpd -n -c DebuggingServer localhost:1025
