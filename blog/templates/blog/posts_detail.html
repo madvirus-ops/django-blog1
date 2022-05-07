@@ -1,0 +1,31 @@
+{% extends "blog/base.html"%}
+{%block title%} {{object.title}} | Blog Page {%endblock%}
+
+{%block content%}
+
+<!-- <p> this is the homepage</p> -->
+
+<article class="media content-section"> 
+	 <!--<img src="{{object.author.profile.image.url}}" class=" article-img " alt=""> -->
+	<div class="media-body"> 
+		<div class="article-metadata"> 
+			
+			<a class="mr-2" href="{% url 'user-post' object.author.username%}">{{ object.author }} </a> 
+			<small class="text-muted"> At {{ object.date_posted }}</small> 
+		</div> 
+		<h2 class="article-title">{{object.title}}</h2>
+		<img class="rounded-square account-img" src="{{object.image.url}}">
+		<p class="article-content">{{object.content }}</p> 
+		<br>
+		{%if request.user == object.author%}
+		<div class="form-group">
+            <br>
+            <a class="btn btn-outline-info btn-sm mt-1 mb-1" href="{% url 'post-update' object.slug %}">Edit Post</a>
+            <a class="btn btn-outline-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.slug %}">Delete post</a>
+        </div>
+		{%endif%}
+	</div>
+</article>
+
+
+{%endblock%}
