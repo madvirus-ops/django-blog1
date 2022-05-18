@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+import django_on_heroku
 import dj_database_url
 from decouple import config
 
@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     'https://django-blogg.tunnels.onboardbase.com',
     '127.0.0.1',
     'localhost',
-    'https://django-blog-11.herokuapp.com/',
+    'https://django-blog-11.herokuapp.com/'
     
 
         ]
@@ -170,4 +170,4 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 #bbbbggggggggggggggggb
-django_heroku.settings(locals())
+django_on_heroku.settings(locals())
