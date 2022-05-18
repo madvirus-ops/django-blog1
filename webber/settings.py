@@ -29,7 +29,13 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://django-blogg.tunnels.onboardbase.com',
+    '127.0.0.1',
+    'localhost',
+    
+
+        ]
 
 
 # Application definition
@@ -153,13 +159,13 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASS")
 #this to use onboardbase tunnel
     # onboardbase tunnels:create -p 8000 -s django-blog
 
-#CSRF_TRUSTED_ORIGINS = [
- #   'https://django-blogg.tunnels.onboardbase.com',
-  #  'http://localhost:8000',
-   # 'http://127.0.0.1:8000',
-    #'https://spotty-wolverine-68.tunnels.onboardbase.com'
-#
-#]
+CSRF_TRUSTED_ORIGINS = [
+    'https://django-blogg.tunnels.onboardbase.com',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+    'https://spotty-wolverine-68.tunnels.onboardbase.com'
+
+]
 
 #bbbbggggggggggggggggb
-django_on_heroku.settings(locals())
+django_on_heroku.settings(locals)
