@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import django_on_heroku
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,13 +29,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'https://django-blogg.tunnels.onboardbase.com',
-    '127.0.0.1',
-    'localhost',
-    
-
-        ]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -58,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'webber.urls'
@@ -129,6 +127,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -154,12 +153,13 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASS")
 #this to use onboardbase tunnel
     # onboardbase tunnels:create -p 8000 -s django-blog
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://django-blogg.tunnels.onboardbase.com',
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
-    'https://spotty-wolverine-68.tunnels.onboardbase.com'
-
-]
+#CSRF_TRUSTED_ORIGINS = [
+ #   'https://django-blogg.tunnels.onboardbase.com',
+  #  'http://localhost:8000',
+   # 'http://127.0.0.1:8000',
+    #'https://spotty-wolverine-68.tunnels.onboardbase.com'
+#
+#]
 
 #bbbbggggggggggggggggb
+django_on_heroku.settings(locals())
