@@ -27,9 +27,10 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'https://django-blog.tunnels.onboardbase.com',
+    'https://django-blogg.tunnels.onboardbase.com',
     '127.0.0.1',
     'localhost',
+    
 
         ]
 
@@ -143,8 +144,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT =  '587'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'edwinayabie3000'
-EMAIL_HOST_PASSWORD = 'edwinbeshe'
+EMAIL_HOST_USER = os.getenv("EMAIL_ADD")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASS")
 
 #remeber this, to use email in lcalhost
     # python -m smtpd -n -c DebuggingServer localhost:1025
@@ -154,9 +155,10 @@ EMAIL_HOST_PASSWORD = 'edwinbeshe'
     # onboardbase tunnels:create -p 8000 -s django-blog
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://django-blog.tunnels.onboardbase.com',
+    'https://django-blogg.tunnels.onboardbase.com',
     'http://localhost:8000',
     'http://127.0.0.1:8000',
+    'https://spotty-wolverine-68.tunnels.onboardbase.com'
 
 ]
 

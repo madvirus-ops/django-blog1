@@ -1,0 +1,3 @@
+setup:
+  project: django-blog1
+  environment: development

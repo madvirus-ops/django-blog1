@@ -1,7 +1,10 @@
 from django.shortcuts import render,get_object_or_404
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
+
+from blog.forms import Postsform
 from .models import Posts
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from froala_editor.widgets import FroalaEditor
 
@@ -40,6 +43,21 @@ class PostCreateView(LoginRequiredMixin,CreateView):
 	def form_valid(self,form):
 		form.instance.author = self.request.user
 		return super().form_valid(form)
+#remove this block later
+@login_required
+def Postnew(request):
+    if request.method == 'POST':
+        form = Postsform(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'post created ')
+            return redirect('post-detail')
+    else:
+        form = Postsform()
+    context ={
+        'form':form,
+    }
+    return render(request,'blog/post2form.html',context)
 	
 class PostUpdateView(UserPassesTestMixin,LoginRequiredMixin,UpdateView):
 	model = Posts 
