@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [
     'https://django-blogg.tunnels.onboardbase.com',
     '127.0.0.1',
     'localhost',
+    'https://django-blog-11.herokuapp.com/',
     
 
         ]
@@ -163,7 +164,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://django-blogg.tunnels.onboardbase.com',
     'http://localhost:8000',
     'http://127.0.0.1:8000',
-    'https://spotty-wolverine-68.tunnels.onboardbase.com'
+    'https://spotty-wolverine-68.tunnels.onboardbase.com',
+    'https://django-blog-11.herokuapp.com/',
 
 ]
 
