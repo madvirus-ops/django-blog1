@@ -15,7 +15,6 @@ def path_and_rename(instance, filename):
     return os.path.join(upload_to, filename)
 
 class Profile(models.Model):
-    verified = models.BooleanField(default=False)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpeg',upload_to=path_and_rename)
 
