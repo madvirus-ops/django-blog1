@@ -9,11 +9,12 @@
 	<!-- <img src="/media/profile_pics/{{post.image}}" class="rounded-circle article-img " alt=""> -->
 	<div class="media-body"> 
 		<div class="article-metadata"> 
+			
 			<a class="mr-2" href="{% url 'user-post' post.author.username%}">{{ post.author }} </a> 
 			<small class="text-muted"> At {{ post.date_posted }}</small> 
 		</div> 
 		<h3><a class="article-title" href="{% url 'post-detail' post.slug %}">{{ post.title }}</a></h3>
-		<p class="article-content">{{ post.content }}</p> 
+		<p class="article-content">{{ post.content|truncatewords:10 }}</p> 
 	</div> 
 </article>
 {%endfor%}

@@ -159,6 +159,25 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASS")
     #onboardbase run -c 'python manage.py runserver'
 #this to use onboardbase tunnel
     # onboardbase tunnels:create -p 8000 -s django-blog
+#this to run bash in heroku
+#first add this in settings header
+    #import django_on_heroku
+    #import dj_database_url
+    #from decouple import config
+#then this in middleware after installing requirements.txt
+    #'whitenoise.middleware.WhiteNoiseMiddleware'
+    #then Procfile
+        #web: gunicorn projectname.wsgi
+    #then this
+        #django_on_heroku.settings(locals())
+    #push to github then
+        #heroku keys:add
+        #heroku create
+        #heroku rename "new name"
+        #heroku config:set DISABLE_COLLECTSTATIC=1
+        #git push heroku master
+    #heroku run bash
+    #note: add heroku url to csrf and allowed hosts
 
 CSRF_TRUSTED_ORIGINS = [
     'https://django-blogg.tunnels.onboardbase.com',

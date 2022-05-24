@@ -13,7 +13,7 @@
 			<small class="text-muted"> At {{ post.date_posted }}</small> 
 		</div> 
 		<h3><a class="article-title" href="{% url 'post-detail' post.slug %}">{{ post.title }}</a></h3>
-		<p class="article-content">{{ post.content }}</p> 
+		<p class="article-content">{{ post.content|truncatewords:15 }}</p> 
 	</div> 
 </article>
 {%endfor%}
