@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
+import os
+from uuid import uuid4
+
 
 def path_and_rename(instance, filename):
     upload_to = 'profile_pics'
