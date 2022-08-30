@@ -1,5 +1,6 @@
 {% extends "blog/base.html"%}
 {%block title%}Sign Up{%endblock%}
+{% load socialaccount %}
 {% load crispy_forms_tags %}
 {%block content%}
 <div class="content-section">
@@ -13,6 +14,16 @@
         </fieldset>
         <div class="form-group">
             <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            {% if user.is_authenticated %}
+                <p>Welcome, You are logged in as {{ user.username }}</p>
+            {% else %}
+                {% comment %} <a href="{% provider_login_url 'google' %}">Login With Google</a> {% endcomment %}
+                <legend class="border-bottom mb-4"><br>
+                    <a class="btn btn-lg btn-google btn-block text-capfirst border border-success btn-outline" href="{% provider_login_url 'google' %}">
+                    <img src="https://img.icons8.com/color/16/000000/google-logo.png"> sign up Using Google</a>
+                </legend
+            {% endif %}
+            </small>
         </div>
     </form>
     <div class="border-top pt-3">

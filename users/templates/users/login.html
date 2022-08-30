@@ -20,7 +20,11 @@
             {% if user.is_authenticated %}
                 <p>Welcome, You are logged in as {{ user.username }}</p>
             {% else %}
-                <a href="{% provider_login_url 'google' %}">Login With Google</a>
+                {% comment %} <a href="{% provider_login_url 'google' %}">Login With Google</a> {% endcomment %}
+                <legend class="border-bottom mb-4"><br>
+                    <a class="btn btn-lg btn-google btn-block text-capfirst btn-outline border border-success" href="{% provider_login_url 'google' %}">
+                    <img src="https://img.icons8.com/color/16/000000/google-logo.png"> Login Using Google</a>
+                </legend
             {% endif %}
             </small>
         </div>
