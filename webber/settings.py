@@ -190,7 +190,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'https://spotty-wolverine-68.tunnels.onboardbase.com',
     'https://django-blog-11.herokuapp.com/',
-    'https://web-production-7395.up.railway.app,
+    'https://web-production-7395.up.railway.app',
 
 ]
 
